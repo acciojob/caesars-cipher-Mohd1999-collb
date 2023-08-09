@@ -31,34 +31,38 @@ const lookup = {
   ",": ",",
 };
 
-function rot13(encodedStr) {
-  let decodedArr = []; // Your Result goes here
-  // Only change code below this line
- for (let i = 0; i < encodedStr.length; i++) {
-        let char = encodedStr.charAt(i);
-          if (char == " ") {
-            decodedArr[i] = " ";
-        }else{
-            decodedArr[i] = lookup[char];
+let A = "A".charCodeAt(0); /// 65
+let Z = "Z".charCodeAt(0); // 90
+function rot13(str) {
+    let ans = "" ; 
+    // for(let i = 0; i < str.length; i++){
+    //     // i = 0
+    //     let currentChar = str[i].charCodeAt(0);
+    //     if(currentChar <= Z && currentChar >= A){
+    //         ans += lookup[str[i]]
+    //     }
+    //     else {
+    //         ans += str[i] ;
+    //     }
+    // }
+
+
+	
+    for(let i = 0; i < str.length; i++){
+        // i = 0
+        // let currentChar = str[i].charCodeAt(0);
+        if(str[i] != " "){
+            ans += lookup[str[i]]
         }
-        
+        else {
+            ans += str[i] ;
+        }
     }
-	  // return; 
-	return decodedArr
+    return ans ;
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
-let arr  = rot13("SERR YBIR? NPPVBWBO"); 
-let ans = "";
 
-for (let i = 0; i < arr.length; i++) {
-	if (arr[i] != " ") {
-		ans += arr[i];
-	}else{
-		ans += " ";
-	}
-}
-console.log(ans);
 
 // Do not change this line
 window.rot13 = rot13;
